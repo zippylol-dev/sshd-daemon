@@ -16,13 +16,13 @@ Make sure that daemon is working before you proceed.
 
 Clone this repository into /sdcard.
 
-Copy the contents of prebuilt/ into /data/local/tmp:
+Copy the contents of prebuilt(or manually compile the client and server using go) into /data/local/tmp:
 
 cp -r /sdcard/SSHD-daemon/prebuilt/* /data/local/tmp
 
 
                                                      ---
-                                                     ⚡ Start the SSHD:                                                                                        Use the Daemon_call function defined in your Termux ~/.bashrc:                                                                                                 Daemon_call /data/local/tmp/sshd_launcher
+                                                     ⚡ Start the SSHD:                                                                                        Use the Daemon_call function defined in your Termux ~/.bashrc:                                                                                                 Daemon_call /data/local/tmp/wrapper
                                                      If you see failed to bind to port, you can ignore this — it still works!                                                                                                                                            ---                                                  
 🔑 Connect to the SSH server:                                                                             Copy the ssh_client binary into your Termux home directory:
 
@@ -30,8 +30,8 @@ cp -r /sdcard/SSHD-daemon/prebuilt/* /data/local/tmp
 
 Optional WAN/LAN access: Before running the client, you can set a remote host:
 
-export MYSSH_SERVER="[ip]:[port]"
-./myssh $MYSSH_SERVER
+export MYSSH_SERVER="[ip]:port" # the ip has to be surrounded in [] but port doesnt have to be
+./myssh
 
 
 ---
